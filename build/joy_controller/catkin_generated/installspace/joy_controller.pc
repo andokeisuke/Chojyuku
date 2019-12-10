@@ -1,0 +1,8 @@
+prefix=/home/ando/Chojyuku/install
+
+Name: joy_controller
+Description: Description of joy_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ando/Chojyuku/install/lib 
+Requires: 

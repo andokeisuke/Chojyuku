@@ -1,0 +1,8 @@
+prefix=/home/ando/Chojyuku/install
+
+Name: chjk
+Description: Description of chjk
+Version: 0.0.0
+Cflags: -I/home/ando/Chojyuku/install/include
+Libs: -L/home/ando/Chojyuku/install/lib 
+Requires: message_runtime

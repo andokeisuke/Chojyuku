@@ -1,0 +1,31 @@
+<launch>
+
+<node pkg="joy" type="joy_node" name="joy_node">
+<param name="dev" type="string" value="/dev/input/js1"/>
+</node>
+
+<!--joy_twist-->
+<node pkg="chjk" type="chjk_node" name="chjk_node" output="screen">
+
+<param name="alpha" value="45"/>
+<param name="r" value="0.5"/>
+
+</node>
+
+<node name="joy_controller" type="joy_controller_node" pkg="joy_controller" >
+<param name="MAX_VEL" value="1.0"/>
+<param name="MAX_ANGULAR_VEL" value="1.0"/>
+ </node>
+
+
+
+<node pkg="chjk_odometry" type="chjk_odometry_node" name="odometry" output="screen">
+
+<param name="chjk_odometry/enc_per_m" value="4048"/>
+</node>
+
+<!--<node pkg="chjk_odometry" type="pose_estimate_out_node" name="out" output="screen">
+</node>-->
+
+</launch>
+

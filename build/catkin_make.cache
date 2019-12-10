@@ -1,0 +1,2 @@
+chjk:chjk_odometry:joy_controller
+-DCATKIN_DEVEL_PREFIX=/home/ando/Chojyuku/devel -DCMAKE_INSTALL_PREFIX=/home/ando/Chojyuku/install -G Unix Makefiles

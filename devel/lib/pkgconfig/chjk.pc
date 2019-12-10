@@ -1,0 +1,8 @@
+prefix=/home/ando/Chojyuku/devel
+
+Name: chjk
+Description: Description of chjk
+Version: 0.0.0
+Cflags: -I/home/ando/Chojyuku/devel/include
+Libs: -L/home/ando/Chojyuku/devel/lib 
+Requires: message_runtime

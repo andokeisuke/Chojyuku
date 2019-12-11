@@ -82,7 +82,7 @@ int main(int argc,char **argv){
 	nh.getParam("chjk_node/alpha", alpha);
 	alpha = alpha /180 *M_PI;
 	nh.getParam("chjk_node/r", r);
-	pose_recv = nh.subscribe("pose_recv",1,get_pose);
+	pose_recv = nh.subscribe("pose",1,get_pose);
 	cmd_recv = nh.subscribe("cmd",1,get_vw);
 	left_front_pub = nh.advertise<chjk::unit_cmd>("left_front",1);
 	left_rear_pub = nh.advertise<chjk::unit_cmd>("left_rear",1);

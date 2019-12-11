@@ -4,7 +4,7 @@
 パッケージ
 
 
-#ｃｈｊｋ  
+# ｃｈｊｋ  
 param  
 double alpha: ロボットの中心から駆動輪までの極座標の角度（前方をｙ座標正にして）【deg】  
 double r:ロボットの中心から駆動輪までの極座標の距離[m]  
@@ -16,12 +16,12 @@ pub
 [left_rear](chjk/unit_cmd)：左後のロボット座標でのステア・駆動指令[rad][m/s]  
 [left_rear](chjk/unit_cmd)：左後のロボット座標でのステア・駆動指令[rad][m/s]  
 
-sub
-[pose](geometry_msgs/Pose2D):グローバル座標での姿勢位置[m][rad]
-[cmd](chjk/vw_cmd):グローバル座標での速度指令[rad/s][m/s]
+sub  
+[pose](geometry_msgs/Pose2D):グローバル座標での姿勢位置[m][rad]  
+[cmd](chjk/vw_cmd):グローバル座標での速度指令[rad/s][m/s]  
 
 
-#chjk_odometry  
+# chjk_odometry  
 
 	1.chjk_odometry_node
 	param
@@ -49,7 +49,7 @@ sub
 
 
 
-#joy_controller  
+# joy_controller  
 param  
 double MAX_VEL: ロボットの最大速度[m/s]  
 double MAX_ANGULAR_VEL:　ロボットの最大角加速度[rad/s]  

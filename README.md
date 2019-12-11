@@ -4,7 +4,9 @@
 パッケージ
 
 
-# ｃｈｊｋ  
+# ｃｈｊｋ 
+
+chjk_node  
 param  
 double alpha: ロボットの中心から駆動輪までの極座標の角度（前方をｙ座標正にして）【deg】  
 double r:ロボットの中心から駆動輪までの極座標の距離[m]  
@@ -49,7 +51,9 @@ sub
 
 
 
-# joy_controller  
+# joy_controller 
+
+joy_controller_node  
 param  
 double MAX_VEL: ロボットの最大速度[m/s]  
 double MAX_ANGULAR_VEL:　ロボットの最大角加速度[rad/s]  

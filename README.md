@@ -17,7 +17,7 @@ pub,sub
 chjk_node  
 
 	param  
-	double alpha: ロボットの中心から駆動輪までの極座標の角度（前方をｙ座標正にして）【deg】  
+	double alpha: ロボットの中心から右前の駆動輪までの極座標の角度（前方をｙ座標正にして）【deg】  
 	double r:ロボットの中心から駆動輪までの極座標の距離[m]  
 
 

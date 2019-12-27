@@ -16,7 +16,7 @@
 
 #define signal_dot 1000
 
-#define enc_p_rotation 4048
+#define enc_p_rotation 1024
 #define wheel_r 0.1
 
 
@@ -25,9 +25,9 @@ volatile long int counter = 0;
 
 volatile long double v = 0;
 
-const float Kp=1950.4;
+const float Kp=49;//1950.4;
 const float Ki=0;
-const float Kd=3.9111;
+const float Kd=0.01;//3.9111;
 long double targetv=0;
 
 
@@ -40,7 +40,7 @@ int pw = 0;
 long double enc = 0;
 long double preenc =0;
 
-int I2C_address = 0x22;
+int I2C_address = 0x12;
 Ti2c receiver(I2C_address);
 
 
@@ -136,7 +136,7 @@ void requestEvent(){
 
   char buf[10] = {};
   int num;
-  num = sprintf(buf, "%d$", int(v));//ardunioがencorder関数を呼び出したら速度を返す
+  num = sprintf(buf, "%d$", int(v*signal_dot));//ardunioがencorder関数を呼び出したら速度を返す
 
   receiver.sendStr(buf);
 

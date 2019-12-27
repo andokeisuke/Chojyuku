@@ -56,7 +56,7 @@ void setup() {
   PCICR |= (1<<PCIE1);//ピン割り込み設定
   PCMSK1 |=(1<<PCINT8);
 
-  TCCR0B = (TCCR0B & 0b11111000) | 0x01; //pwm 62.5 [kHz]
+  TCCR0B = (TCCR0B & 0b11111000) | 0x03; //pwm 62.5 [kHz]
 
   Serial.begin (9600);
 

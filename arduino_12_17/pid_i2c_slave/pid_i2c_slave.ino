@@ -17,8 +17,8 @@
 
 
 volatile long int temp, counter = 0;
-const float Kp=4.05516;
-const float Ki=0.21958;
+const float Kp=0.25;
+const float Ki=0.01;
 const float Kd=0.00059;
 float targetenc=0;
 
@@ -48,7 +48,7 @@ ISR(PCINT1_vect,ISR_NOBLOCK){//エンコーダのＡＢ層の立ち上がりを�
 void setup() {
   PCICR |= (1<<PCIE1);//ピン割り込み設定
   PCMSK1 |=(1<<PCINT8);
-  TCCR0B = (TCCR0B & 0b11111000) | 0x01; //pwm 62.5 [kHz]
+  TCCR0B = (TCCR0B & 0b11111000) | 0x03; //pwm 1 [kHz]
 
   Serial.begin (9600);
 

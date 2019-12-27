@@ -52,12 +52,15 @@ void get_vw(const chjk::vw_cmd::ConstPtr& msg){
 
 	rotation(local_v,target_v,-now_theta);//速度指令をlocal座標変換
 
+	
 
-	right_front.deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180;		
-	left_front.deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180;
-	left_rear.deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180;
-	right_rear.deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180;
+	if(!(target_v[0] == 0 && target_v[1] == 0 && target_w == 0) ){
 
+		right_front.deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180;		
+		left_front.deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180;
+		left_rear.deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180;
+		right_rear.deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180;
+	}
 
 	right_front.vel = hypotf(local_v[1] + target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha));
 	left_front.vel = hypotf(local_v[1] - target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha));

@@ -13,7 +13,7 @@
 
 #include "ti2c.h"
 #include "ise_motor_driver.h"
-#define ENC_PER_ROT 2550//360度のエンコーダの値
+#define ENC_PER_ROT 4048//360度のエンコーダの値
 #define signal_dot 1000
 
 
@@ -30,14 +30,14 @@ struct MotorHandler
 
 // ============================== arguments ==============================
 
-IseMotorDriver right_front = IseMotorDriver(0x20);//20
-IseMotorDriver right_rear = IseMotorDriver(0x21);//21
-IseMotorDriver left_front = IseMotorDriver(0x22);//22
-IseMotorDriver left_rear = IseMotorDriver(0x23);//23
-IseMotorDriver right_front_st = IseMotorDriver(0x10);//10
-IseMotorDriver right_rear_st = IseMotorDriver(0x11);//11
-IseMotorDriver left_front_st = IseMotorDriver(0x12);//12
-IseMotorDriver left_rear_st = IseMotorDriver(0x13);//13    
+IseMotorDriver right_front = IseMotorDriver(0x00);//20
+IseMotorDriver right_rear = IseMotorDriver(0x00);//21
+IseMotorDriver left_front = IseMotorDriver(0x00);//22
+IseMotorDriver left_rear = IseMotorDriver(0x00);//23
+IseMotorDriver right_front_st = IseMotorDriver(0x23);//23
+IseMotorDriver right_rear_st = IseMotorDriver(0x21);//21
+IseMotorDriver left_front_st = IseMotorDriver(0x20);//20
+IseMotorDriver left_rear_st = IseMotorDriver(0x22);//22   
 
                                                          
 

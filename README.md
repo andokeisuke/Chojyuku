@@ -97,9 +97,11 @@ joy_controller_node
 	param  
 	double MAX_VEL: ロボットの最大速度[m/s]  
 	double MAX_ANGULAR_VEL:　ロボットの最大角加速度[rad/s]  
+	int SPD_TRY: トライ機構の回転速度[duty]
 
 	pub  
 	[cmd](chjk/vw_cmd):グローバル座標での速度指令[rad/s][m/s]  
+	[try_pub](std_msgs/Int16):トライ機構動作指令[duty]
 
 	sub  
 	[joy](sensor_msgs/Joy): joyコントローラの入力  

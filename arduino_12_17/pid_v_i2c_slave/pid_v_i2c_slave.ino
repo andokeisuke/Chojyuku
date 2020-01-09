@@ -40,7 +40,7 @@ int pw = 0;
 long double enc = 0;
 long double preenc =0;
 
-int I2C_address = 0x12;
+int I2C_address = 0x11;
 Ti2c receiver(I2C_address);
 
 

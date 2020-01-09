@@ -35,7 +35,7 @@ float enc = 0;
 float preenc;
 
 
-int I2C_address = 0x12;
+int I2C_address = 0x14;
 Ti2c receiver(I2C_address);
 
 ISR(PCINT1_vect,ISR_NOBLOCK){//エンコーダのＡＢ層の立ち上がりを見てカウントダウンカウントアップする

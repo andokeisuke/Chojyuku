@@ -56,7 +56,7 @@ void get_joy(const sensor_msgs::Joy& joy){
 	}
 
 	cmd_pub.publish(cmd);
-	cmd_try.publish(trying);
+	try_pub.publish(trying);
 }
 
 int main(int argc, char** argv)

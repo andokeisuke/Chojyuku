@@ -25,9 +25,15 @@ volatile long int counter = 0;
 
 volatile long double v = 0;
 
+<<<<<<< HEAD
 const float Kp=49;//1950.4;
 const float Ki=0;
 const float Kd=0.01;//3.9111;
+=======
+const float Kp=49;
+const float Ki=0;
+const float Kd=0.01;
+>>>>>>> 0ce3a32715bd8f06eee9079dc95cb0fd2ee591ee
 long double targetv=0;
 
 
@@ -56,7 +62,7 @@ void setup() {
   PCICR |= (1<<PCIE1);//ピン割り込み設定
   PCMSK1 |=(1<<PCINT8);
 
-  TCCR0B = (TCCR0B & 0b11111000) | 0x03; //pwm 62.5 [kHz]
+  TCCR0B = (TCCR0B & 0b11111000) | 0x03; //pwm 1[kHz]
 
   Serial.begin (9600);
 

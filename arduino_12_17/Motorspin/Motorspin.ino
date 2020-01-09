@@ -8,7 +8,7 @@
 #include "ti2c.h"
 #include "ise_motor_driver.h"
 
-uint8_t addr = 0x13;
+uint8_t addr = 0x14;
 IseMotorDriver m1=IseMotorDriver(addr);
 ros::NodeHandle nh;
 

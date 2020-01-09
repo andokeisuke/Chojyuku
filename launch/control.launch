@@ -26,7 +26,7 @@
 <node name="joy_controller" type="joy_controller_node" pkg="joy_controller" >
 <param name="MAX_VEL" value="2.0"/>
 <param name="MAX_ANGULAR_VEL" value="3.0"/>
-<param name="SPD_TRY" value="255"/>
+<param name="SPD_TRY" value="127"/>
  </node>
 
 

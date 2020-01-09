@@ -49,11 +49,7 @@ void get_joy(const sensor_msgs::Joy& joy){
 	}
 
 	//トライ
-	if(joy.buttons[0] == 1){
-		trying.data = SPD_TRY;
-	}else{
-		trying.data = 0;
-	}
+	trying.data = SPD_TRY*joy.axes[5];
 
 	cmd_pub.publish(cmd);
 	try_pub.publish(trying);

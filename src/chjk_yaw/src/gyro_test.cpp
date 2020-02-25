@@ -55,7 +55,7 @@ int main(int argc,char **argv){
 		count++;
 	}
 	//standing by2
-	while(ros::ok && valRaw==0.0){
+	while(ros::ok() && valRaw==0.0){
 		ros::spinOnce();
 		loop_rate.sleep();
 	}

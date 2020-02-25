@@ -25,9 +25,9 @@ ros/message_operations.h
 /home/ando/Chojyuku/src/chjk_odometry/src/chjk_odometry_node.cpp
 ros/ros.h
 -
-std_msgs/Int64.h
+std_msgs/Int64MultiArray.h
 -
-std_msgs/Int16.h
+std_msgs/Float64.h
 -
 chjk/vw_cmd.h
 -
@@ -914,6 +914,22 @@ ros/forwards.h
 
 /opt/ros/kinetic/include/rosconsole/macros_generated.h
 
+/opt/ros/kinetic/include/std_msgs/Float64.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /opt/ros/kinetic/include/std_msgs/Header.h
 string
 -
@@ -930,7 +946,25 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/opt/ros/kinetic/include/std_msgs/Int16.h
+/opt/ros/kinetic/include/std_msgs/Int64MultiArray.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/MultiArrayLayout.h
+-
+
+/opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
 string
 -
 vector
@@ -946,7 +980,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/opt/ros/kinetic/include/std_msgs/Int64.h
+/opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
 string
 -
 vector
@@ -960,6 +994,8 @@ ros/serialization.h
 ros/builtin_message_traits.h
 -
 ros/message_operations.h
+-
+std_msgs/MultiArrayDimension.h
 -
 
 /opt/ros/kinetic/include/tf/LinearMath/Matrix3x3.h

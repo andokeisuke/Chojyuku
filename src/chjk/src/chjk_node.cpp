@@ -68,6 +68,23 @@ void get_vw(const chjk::vw_cmd::ConstPtr& msg){
 	left_rear.vel = hypotf(local_v[1] - target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha));
 	right_rear.vel = hypotf(local_v[1] + target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha));
 
+	if(right_front.deg<0){
+		right_front.deg = right_front.deg + 180;
+		right_front.vel = -right_front.vel;
+	}
+	if(left_front.deg<0){
+		left_front.deg = left_front.deg + 180;
+		left_front.vel = -left_front.vel;
+	}
+	if(left_rear.deg<0){
+		left_rear.deg = left_rear.deg + 180;
+		left_rear.vel = -left_rear.vel;
+	}
+	if(right_rear.deg<0){
+		right_rear.deg = right_rear.deg + 180;
+		right_rear.vel = -right_rear.vel;
+	}
+
 
 
 

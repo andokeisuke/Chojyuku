@@ -127,7 +127,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/ando/Chojyuku/build/gtest/cmake_install.cmake")
   include("/home/ando/Chojyuku/build/chjk/cmake_install.cmake")
+  include("/home/ando/Chojyuku/build/chjk_yaw/cmake_install.cmake")
   include("/home/ando/Chojyuku/build/joy_controller/cmake_install.cmake")
+  include("/home/ando/Chojyuku/build/mpc/cmake_install.cmake")
   include("/home/ando/Chojyuku/build/chjk_odometry/cmake_install.cmake")
 
 endif()

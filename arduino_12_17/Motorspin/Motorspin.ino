@@ -8,13 +8,13 @@
 #include "ti2c.h"
 #include "ise_motor_driver.h"
 
-uint8_t addr = 0x13;
+uint8_t addr = 0x12;
 IseMotorDriver m1=IseMotorDriver(addr);
 ros::NodeHandle nh;
 
 void task_cb(const std_msgs::Int16& msg)
 {
- m1.setSpeed(msg.data);
+ m1.setSpeed(int(msg.data));
 }
 
 ros::Subscriber<std_msgs::Int16>sub("try_topic",task_cb);

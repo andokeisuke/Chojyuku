@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="chjk_yaw" name="gyro_pub1" type="gyro_pub1"> </node>
+  <node pkg="chjk_yaw" name="gyro_pub2" type="gyro_pub2"> </node>
+  <node pkg="chjk_yaw" name="gyro_test" type="gyro_test"> </node>
+</launch>

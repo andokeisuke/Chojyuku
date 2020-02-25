@@ -6,5 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(chjk)
+subdirs(chjk_yaw)
 subdirs(joy_controller)
+subdirs(mpc)
 subdirs(chjk_odometry)

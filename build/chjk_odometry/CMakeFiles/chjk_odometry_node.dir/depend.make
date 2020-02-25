@@ -71,9 +71,11 @@ chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /o
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Float64.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
-chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int16.h
-chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int64.h
+chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int64MultiArray.h
+chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
+chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/tf/LinearMath/Matrix3x3.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/tf/LinearMath/MinMax.h
 chjk_odometry/CMakeFiles/chjk_odometry_node.dir/src/chjk_odometry_node.cpp.o: /opt/ros/kinetic/include/tf/LinearMath/QuadWord.h

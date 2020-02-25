@@ -111,6 +111,7 @@ joy_controller_node
 # chjk_yaw 
 
 gyro_test  
+
 	param
 	WAIT_LOOP: 初期の無視するセンサ値の数
 	SAMPLE_NUM: センサ特性 (平均と分散) を計算するためのサンプル数

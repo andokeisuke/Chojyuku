@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ando/Chojyuku/devel/include/chjk/vw_cmd.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
-
 /home/ando/Chojyuku/src/chjk_odometry/src/chjk_odometry_node.cpp
 ros/ros.h
 -
@@ -29,7 +13,9 @@ std_msgs/Int64MultiArray.h
 -
 std_msgs/Float64.h
 -
-chjk/vw_cmd.h
+geometry_msgs/Twist.h
+/home/ando/Chojyuku/src/chjk_odometry/src/geometry_msgs/Twist.h
+geometry_msgs/Pose2D.h
 -
 tf/tf.h
 -
@@ -94,6 +80,22 @@ ros/message_operations.h
 geometry_msgs/Point.h
 -
 geometry_msgs/Quaternion.h
+-
+
+/opt/ros/kinetic/include/geometry_msgs/Pose2D.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
 -
 
 /opt/ros/kinetic/include/geometry_msgs/PoseStamped.h

@@ -59,8 +59,7 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
-  <build_depend>custom_msg</build_depend>
-  <exec_depend>custom_msg</exec_depend>
+
 
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>

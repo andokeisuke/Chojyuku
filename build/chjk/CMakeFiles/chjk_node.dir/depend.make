@@ -5,6 +5,8 @@ chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /home/ando/Chojyuku/devel/inc
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /home/ando/Chojyuku/devel/include/chjk/vw_cmd.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /home/ando/Chojyuku/src/chjk/src/chjk_node.cpp
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Pose2D.h
+chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Twist.h
+chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/geometry_msgs/Vector3.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/advertise_options.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/advertise_service_options.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/assert.h
@@ -61,6 +63,7 @@ chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Float64.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 

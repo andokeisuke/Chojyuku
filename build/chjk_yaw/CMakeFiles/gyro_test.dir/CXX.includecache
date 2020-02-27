@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/ando/Chojyuku/devel/include/chjk/vw_cmd.h
+/home/ando/Chojyuku/src/chjk_yaw/src/gyro_test.cpp
+math.h
+-
+ros/ros.h
+/home/ando/Chojyuku/src/chjk_yaw/src/ros/ros.h
+std_msgs/Float64.h
+/home/ando/Chojyuku/src/chjk_yaw/src/std_msgs/Float64.h
+geometry_msgs/Twist.h
+/home/ando/Chojyuku/src/chjk_yaw/src/geometry_msgs/Twist.h
+sstream
+-
+
+/opt/ros/kinetic/include/geometry_msgs/Twist.h
 string
 -
 vector
@@ -21,17 +33,25 @@ ros/builtin_message_traits.h
 -
 ros/message_operations.h
 -
-
-/home/ando/Chojyuku/src/chjk_yaw/src/gyro_test.cpp
-math.h
+geometry_msgs/Vector3.h
 -
-ros/ros.h
-/home/ando/Chojyuku/src/chjk_yaw/src/ros/ros.h
-std_msgs/Float64.h
-/home/ando/Chojyuku/src/chjk_yaw/src/std_msgs/Float64.h
-chjk/vw_cmd.h
-/home/ando/Chojyuku/src/chjk_yaw/src/chjk/vw_cmd.h
-sstream
+geometry_msgs/Vector3.h
+-
+
+/opt/ros/kinetic/include/geometry_msgs/Vector3.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
 -
 
 /opt/ros/kinetic/include/ros/advertise_options.h

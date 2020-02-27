@@ -1,7 +1,8 @@
 #include <ros/ros.h>  // rosで必要はヘッダーファイル
 #include <std_msgs/Int64MultiArray.h>
 #include <std_msgs/Float64.h>
-#include <chjk/vw_cmd.h> // ロボットを動かすために必要
+#include "geometry_msgs/Twist.h" // ロボットを動かすために必要
+#include <geometry_msgs/Pose2D.h>
 #include <tf/tf.h>
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_datatypes.h>
@@ -25,10 +26,10 @@ double state_odom_y;//オドメトリY座標[m]
 double state_odom_th; //オドメトリ姿勢[rad]
 
 
-void get_vw(const chjk::vw_cmd::ConstPtr& cmd){
-	vx = cmd->vx;
-	vy = cmd->vy;
-	w = cmd->w;
+void get_vw(const geometry_msgs::Twist::ConstPtr& cmd){
+	vx = cmd->linear.x;
+	vy = cmd->linear.y;
+	w = cmd->angular.z;
 }
 
 void get_pose(const std_msgs::Float64::ConstPtr& pose){
@@ -43,7 +44,7 @@ void get_enc(const std_msgs::Int64MultiArray::ConstPtr& enc){
 	double enc_x = enc->data[0];
 	double distance_x = (enc_x-preenc_x)/enc_per_m;
 	double enc_y = enc->data[1];
-	double distance_y = (enc_y-preenc_y)/enc_per_m;
+	double distance_y = -(enc_y-preenc_y)/enc_per_m;
 
 
 	if(fabs(enc_x-preenc_x)>int_memory){//int型のオーバーフローの例外処理
@@ -59,8 +60,8 @@ void get_enc(const std_msgs::Int64MultiArray::ConstPtr& enc){
 
 
 	
-	state_odom_x= state_odom_x + distance_x;
-	state_odom_y= state_odom_y + distance_y;
+	state_odom_x= state_odom_x + distance_x * cos(state_odom_th) - distance_y * sin(state_odom_th);
+	state_odom_y= state_odom_y + distance_x * sin(state_odom_th) + distance_y * cos(state_odom_th);
 	
 	       
 
@@ -93,7 +94,8 @@ int main(int argc, char **argv){
 
 	ros::Subscriber enc_sub = n.subscribe<std_msgs::Int64MultiArray>("enc", 1, get_enc);
 	ros::Subscriber pose_recv = n.subscribe<std_msgs::Float64>("gyro_yaw", 1, get_pose);
-	ros::Subscriber cmd_recv = n.subscribe<chjk::vw_cmd>("cmd", 1, get_vw);
+	ros::Subscriber cmd_recv = n.subscribe<geometry_msgs::Twist>("cmd", 1, get_vw);
+	ros::Publisher pose_pub = n.advertise<geometry_msgs::Pose2D>("odometry",1);
 
 	
 	ros::Rate r(40.0);
@@ -110,6 +112,11 @@ int main(int argc, char **argv){
     		odom_trans.transform.translation.z = 0.0;
 			geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(state_odom_th);
     		odom_trans.transform.rotation = odom_quat;
+			geometry_msgs::Pose2D pose;
+			pose.x = state_odom_x;
+			pose.y = state_odom_y;
+			pose.theta = state_odom_th;
+			pose_pub.publish(pose);
 
 
     		odom_broadcaster.sendTransform(odom_trans);

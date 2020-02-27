@@ -2,7 +2,7 @@
 #include<math.h> //M_PI
 #include"ros/ros.h"
 #include"std_msgs/Float64.h"
-#include"chjk/vw_cmd.h"
+#include"geometry_msgs/Twist.h"
 #include<sstream>
 
 //constant (main)
@@ -24,7 +24,7 @@ double valPst; //data from topic "target_posture"
 
 //function prototype
 void get_gyro_raw(const std_msgs::Float64::ConstPtr& valRaw);
-void get_target_posture(const chjk::vw_cmd::ConstPtr& valpst);
+void get_target_posture(const geometry_msgs::Twist::ConstPtr& valpst);
 void kalman_init(double arr[], double *mean, double *vari);
 void kalman_loop(double mean, double vari);
 void debugPrint(double val);
@@ -149,8 +149,8 @@ void get_gyro_raw(const std_msgs::Float64::ConstPtr& val){
 }
 
 //get data from topic "target posture"
-void get_target_posture(const chjk::vw_cmd::ConstPtr& val){
-	valPst = val->w;
+void get_target_posture(const geometry_msgs::Twist::ConstPtr& val){
+	valPst = val->angular.z;
 }
 
 //print for debug

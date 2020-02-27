@@ -1,7 +1,9 @@
 #include <ros/ros.h>
 #include <chjk/unit_cmd.h>
 #include <chjk/vw_cmd.h>
+#include <geometry_msgs/Twist.h>
 #include <geometry_msgs/Pose2D.h>
+#include <std_msgs/Float64.h>
 #include <math.h>
 #include <sstream>
 
@@ -31,23 +33,23 @@ chjk::unit_cmd left_front,left_rear,right_front,right_rear;
 
 void rotation(double *new_v,double *pre_v,double theta);
 
-void get_pose(const geometry_msgs::Pose2D::ConstPtr& pose){
+void get_pose(const std_msgs::Float64::ConstPtr& pose){
 
 	
-	now_theta = pose->theta;
+	now_theta = pose->data/180*M_PI;
 
 
 }
 
 
-void get_vw(const chjk::vw_cmd::ConstPtr& msg){
+void get_vw(const geometry_msgs::Twist::ConstPtr& msg){
 
 
 
 
-	target_v[0] = msg->vx;
-	target_v[1] = msg->vy;
-	target_w = msg->w;
+	target_v[0] = msg->linear.x;
+	target_v[1] = msg->linear.y;
+	target_w = msg->angular.z;
 
 
 

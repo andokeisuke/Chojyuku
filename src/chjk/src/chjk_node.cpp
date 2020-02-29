@@ -33,10 +33,10 @@ chjk::unit_cmd left_front,left_rear,right_front,right_rear;
 
 void rotation(double *new_v,double *pre_v,double theta);
 
-void get_pose(const std_msgs::Float64::ConstPtr& pose){
+void get_pose(const geometry_msgs::Twist::ConstPtr& pose){
 
 	
-	now_theta = pose->data/180*M_PI;
+	now_theta = pose->angular.z;
 
 
 }
@@ -101,18 +101,24 @@ void get_vw(const geometry_msgs::Twist::ConstPtr& msg){
 int main(int argc,char **argv){
 	ros::init(argc,argv,"chojyuku");
 	ros::NodeHandle nh;
+	ros::Rate loop_rate(100);
 
 	nh.getParam("chjk_node/alpha", alpha);
 	alpha = alpha /180 *M_PI;
 	nh.getParam("chjk_node/r", r);
-	pose_recv = nh.subscribe("pose",1,get_pose);
+	pose_recv = nh.subscribe("spe",1,get_pose);
 	cmd_recv = nh.subscribe("cmd",1,get_vw);
 	left_front_pub = nh.advertise<chjk::unit_cmd>("left_front",1);
 	left_rear_pub = nh.advertise<chjk::unit_cmd>("left_rear",1);
 	right_front_pub = nh.advertise<chjk::unit_cmd>("right_front",1);
 	right_rear_pub = nh.advertise<chjk::unit_cmd>("right_rear",1);
 
-	ros::spin();
+	while (ros::ok())
+	{
+		ros::spinOnce();
+		loop_rate.sleep();
+
+	}
 	return 0;
 }
 

@@ -1,5 +1,5 @@
 <launch>
-<node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0.34 0 0.03  0 0 0  base_link laser 100" />
+<node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0.4 0 0.03  0 0 0  base_link laser 100" />
 
 <node pkg="urg_node" type="urg_node" name="urg_node" output="screen" >
     <param name="ip_address" value="192.168.0.10"/>
@@ -8,7 +8,7 @@
 </node>
 
 <!-- Run the map server -->
-<arg name="map_file" default="$(find mpc)/map/my_map.yaml"/>
+<arg name="map_file" default="$(find mpc)/map/my_map2.yaml"/>
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 
@@ -48,8 +48,8 @@
 <!--joy_twist-->
 <node pkg="chjk" type="chjk_node" name="chjk_node" output="screen">
 
-<param name="alpha" value="45"/>
-<param name="r" value="0.5"/>
+<param name="alpha" value="38.78"/>
+<param name="r" value="0.359"/>
 
 </node>
 
@@ -69,6 +69,7 @@
 </node>
 
  <node pkg="mpc" type="task_manager.py" name="task_manager" output="screen"/>
+
 
 
 </launch>

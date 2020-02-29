@@ -8,17 +8,18 @@
     <!-- Publish scans from best pose at a max of 10 Hz -->
 
     <param name="odom_model_type" value="omni-corrected"/>
-    <param name="odom_alpha1" value="0.5"/><!--オドメトリの直進成分がオドメトリの直進成分に与える誤差-->
-    <param name="odom_alpha2" value="0.9"/><!--オドメトリの直進成分がオドメトリの回転成分に与える誤差-->
-    <param name="odom_alpha3" value="0.5"/><!--オドメトリの回転成分がオドメトリの直進成分に与える誤差-->
-    <param name="odom_alpha4" value="0.5"/><!--オドメトリの回転成分がオドメトリの回転成分に与える誤差-->
-    <param name="odom_alpha5" value="0.2"/>
+    <param name="odom_alpha1" value="0.3"/><!--オドメトリの直進成分がオドメトリの直進成分に与える誤差-->
+    <param name="odom_alpha2" value="0.3"/><!--オドメトリの直進成分がオドメトリの回転成分に与える誤差-->
+    <param name="odom_alpha3" value="0.3"/><!--オドメトリの回転成分がオドメトリの直進成分に与える誤差-->
+    <param name="odom_alpha4" value="0.3"/><!--オドメトリの回転成分がオドメトリの回転成分に与える誤差-->
+    <param name="odom_alpha5" value="0.1"/>
 
     <param name="transform_tolerance" value="0.2" />
 
     <param name="laser_max_beams" value="30"/><!--フィルタの更新時に各スキャンでどのように多くの等間隔のビームが使用される-->
-    <param name="min_particles" value="1000"/><!--粒子の最小許容数。-->
-    <param name="max_particles" value="3000"/><!--粒子の最大許容数。-->
+    <param name="laser_max_range" value="6"/>
+    <param name="min_particles" value="100"/><!--粒子の最小許容数。-->
+    <param name="max_particles" value="5000"/><!--粒子の最大許容数。-->
 
     <param name="kld_err" value="0.1"/><!--真の分布と推定分布の間の最大誤差。-->
     <param name="kld_z" value="0.99"/>
@@ -41,17 +42,20 @@
 
 
 
-    <param name="update_min_d" value="0.08"/><!--フィルタのアップデートを実行する前に必要とされる並進運動。--> 
-    <param name="update_min_a" value="0.1"/><!--フィルタのアップデートを実行する前に必要とされる回転運動。-->
+    <param name="update_min_d" value="0.1"/><!--フィルタのアップデートを実行する前に必要とされる並進運動。--> 
+    <param name="update_min_a" value="0.01"/><!--フィルタのアップデートを実行する前に必要とされる回転運動。-->
 
-    <param name="resample_interval" value="13"/><!--リサンプリング前に必要なフィルタ更新の数-->
+    <param name="resample_interval" value="10"/><!--リサンプリング前に必要なフィルタ更新の数-->
    
     <param name="recovery_alpha_slow" value="0.0"/>
     <param name="recovery_alpha_fast" value="0.0"/>
 
 
-    <param name="gui_publish_rate" value="10.0"/>
+    <param name="gui_publish_rate" value="100.0"/>
     <param name="odom_frame_id" value="odom"/>
   </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" output="screen"/>
+  
 
 </launch>

@@ -114,7 +114,7 @@ void kalman_loop(double mean, double vari){
 	kgain2 = pp22 / (vari+pp22);
 	//P = (I-GC)P'
 	p11 = pp11-pp21*kgain1; p12 = pp12-pp22*kgain1;
-	p21 = pp21*(1-kgain2);  p22 = pp22*(1-kgain2);
+	p21 = pp21*(1.0-kgain2);  p22 = pp22*(1.0-kgain2);
 	//x = x' + G(y-Cx')
 	tht = ptht+(valRaw-pomg)*kgain1;
 	omg = pomg+(valRaw-pomg)*kgain2;

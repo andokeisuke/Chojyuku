@@ -108,6 +108,28 @@ joy_controller_node
 	＊左スティックでｘｙ座標の速度、左スティックの右半面、正の回転、左半面、負の回転  
 
 
+# chjk_yaw 
+
+gyro_test  
+
+	param
+	WAIT_LOOP: 初期の無視するセンサ値の数
+	SAMPLE_NUM: センサ特性 (平均と分散) を計算するためのサンプル数
+	MAIN_FREQUENCY: メインループの周波数[Hz]
+	TARGET_POSTURE_NOISE: 角速度指令の誤差分散
+	INIT_ANGEL_ERROR: 初期角度の誤差分散
+	INIT_ANGLE: 初期角度[rad]
+	INIT_ANGLAR_VELOCITY: 初期角速度[rad/sec]
+
+	pub  
+	[gyro_yaw](std_msgs/Float64): カルマンフィルタをかけた後のグローバル座標での角度[deg]
+
+	sub  
+	[cmd](chjk/vw_cmd): グローバル座標での角速度指令[rad/sec]  
+	[gyro_raw](std_msgs/Float64): ジャイロセンサによるグローバル座標での角速度の生データ[deg/sec]  
+	
+	
+	
 # arduino  
 
 ステアpidパラメータ  

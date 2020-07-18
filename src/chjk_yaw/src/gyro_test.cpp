@@ -49,13 +49,13 @@ int main(int argc,char **argv){
 	
 	//** node body **//
 	//standing by
-	while(count<WAIT_LOOP){
+	while(ros::ok() && count<WAIT_LOOP){
 		ros::spinOnce();
 		loop_rate.sleep();
 		count++;
 	}
 	//standing by2
-	while(valRaw==0.0){
+	while(ros::ok() && valRaw==0.0){
 		ros::spinOnce();
 		loop_rate.sleep();
 	}

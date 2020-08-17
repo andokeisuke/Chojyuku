@@ -64,6 +64,7 @@ chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Float64.h
+chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int64.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 chjk/CMakeFiles/chjk_node.dir/src/chjk_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 

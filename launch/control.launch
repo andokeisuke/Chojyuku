@@ -1,16 +1,17 @@
 <launch>
-<node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0.34 0 0.03  0 0 0  base_link laser 100" />
+<!--
+<node pkg="tf" type="static_transform_publisher" name="hokuyo_broadcaster" args="0.4 0 0.03  0 0 0  base_link laser 100" />
 
 <node pkg="urg_node" type="urg_node" name="urg_node" output="screen" >
     <param name="ip_address" value="192.168.0.10"/>
     <param name="angle_min" value="-1.6"/>
     <param name="angle_max" value="1.6"/>
 </node>
-
-<!-- Run the map server -->
-<arg name="map_file" default="$(find mpc)/map/my_map.yaml"/>
+-->
+<!-- Run the map server 
+<arg name="map_file" default="$(find mpc)/map/my_map2.yaml"/>
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
+-->
 
 <node pkg="joy" type="joy_node" name="joy_node">
 <param name="dev" type="string" value="/dev/input/js1"/>
@@ -20,18 +21,18 @@
 <node
  pkg="rosserial_python"
  type="serial_node.py"
- name="serial_node">
+ name="serial_node0">
 
 <param name="port" value="/dev/ttyACM0"/>
 <param name="baud" value="57600"/>
 </node>
-
-<node
+<!--
+    <node
  pkg="rosserial_python"
  type="serial_node.py"
  name="serial_node1">
 
-<param name="port" value="/dev/ttyACM1"/>
+<param name="port" value="/dev/ttyACM2"/>
 <param name="baud" value="57600"/>
 </node>
 
@@ -40,26 +41,32 @@
  type="serial_node.py"
  name="serial_node2">
 
-<param name="port" value="/dev/ttyUSB0"/>
+<param name="port" value="/dev/ttyACM3"/>
+<param name="baud" value="57600"/>
+</node>
+
+<node
+ pkg="rosserial_python"
+ type="serial_node.py"
+ name="serial_node4">
+
+<param name="port" value="/dev/ttyACM1"/>
 <param name="baud" value="57600"/>
 </node>
 
 
-<!--joy_twist-->
-<node pkg="chjk" type="chjk_node" name="chjk_node" output="screen">
+<node
+ pkg="rosserial_python"
+ type="serial_node.py"
+ name="serial_node3">
 
-<param name="alpha" value="45"/>
-<param name="r" value="0.5"/>
+<param name="port" value="/dev/ttyACM4"/>
+<param name="baud" value="57600"/>
+</node>-->
 
-</node>
 
-<node name="joy_controller" type="joy_controller_node" pkg="joy_controller" >
-<param name="MAX_VEL" value="2.0"/>
-<param name="MAX_ANGULAR_VEL" value="3.0"/>
-<param name="SPD_TRY" value="70"/>
- </node>
-
- <node pkg="chjk_yaw" type="gyro_test" name="gyro" output="screen"/>
+<!--
+     <node pkg="chjk_yaw" type="gyro_test" name="gyro" output="screen"/>
 
 
 
@@ -69,6 +76,26 @@
 </node>
 
  <node pkg="mpc" type="task_manager.py" name="task_manager" output="screen"/>
+
+-->
+<!--joy_twist-->
+<node pkg="chjk" type="chjk_node" name="chjk_node" output="screen">
+
+<param name="alpha" value="38.78"/>
+<param name="r" value="0.359"/>
+
+</node>
+
+<node name="joy_controller" type="joy_controller_node" pkg="joy_controller" >
+<param name="MAX_VEL" value="2.0"/>
+<param name="MAX_ANGULAR_VEL" value="5.0"/>
+<param name="ENC_NUM" value="2000"/>
+<param name="TRY_SPEED" value="100"/>
+<param name="DELAY_TIME" value="200"/>
+ </node>
+
+
+
 
 
 </launch>

@@ -30,14 +30,14 @@ struct MotorHandler
 
 // ============================== arguments ==============================
 
-IseMotorDriver right_front = IseMotorDriver(0x13);//13
-IseMotorDriver right_rear = IseMotorDriver(0x11);//11
-IseMotorDriver left_front = IseMotorDriver(0x10);//10
-IseMotorDriver left_rear = IseMotorDriver(0x12);//22
-IseMotorDriver right_front_st = IseMotorDriver(0x23);//23
-IseMotorDriver right_rear_st = IseMotorDriver(0x21);//21
-IseMotorDriver left_front_st = IseMotorDriver(0x20);//20
-IseMotorDriver left_rear_st = IseMotorDriver(0x22);//22   
+IseMotorDriver right_front = IseMotorDriver(0x10);//13 10
+IseMotorDriver right_rear = IseMotorDriver(0x13);//11 13
+IseMotorDriver left_front = IseMotorDriver(0x12);//10 12
+IseMotorDriver left_rear = IseMotorDriver(0x11);//22 11
+IseMotorDriver right_front_st = IseMotorDriver(0x20);//23 20
+IseMotorDriver right_rear_st = IseMotorDriver(0x23);//21 23
+IseMotorDriver left_front_st = IseMotorDriver(0x22);//20 22
+IseMotorDriver left_rear_st = IseMotorDriver(0x21);//22   21
 
                                                          
 

@@ -1,0 +1,8 @@
+prefix=/home/ando/Chojyuku/devel
+
+Name: tf_listener
+Description: Description of tf_listener
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

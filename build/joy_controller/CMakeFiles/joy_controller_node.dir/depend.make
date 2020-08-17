@@ -63,7 +63,10 @@ joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o:
 joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/sensor_msgs/Joy.h
 joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Float64.h
 joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Header.h
-joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int16.h
+joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int16MultiArray.h
+joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/Int64.h
+joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
+joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
 joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 joy_controller/CMakeFiles/joy_controller_node.dir/src/joy_controller_node.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 

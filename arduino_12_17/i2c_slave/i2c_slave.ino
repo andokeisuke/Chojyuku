@@ -74,7 +74,7 @@ void setup() {
   // 動作クロックは分周なしの8MHz
   // PWMキャリア波の周波数は8MHz/256=31.25kHz
 
-  digitalWrite(SR,LOW);
+  digitalWrite(SR,HIGH);
 }
 
 
@@ -105,7 +105,7 @@ void requestEvent(){
   
   char buf[10] = {};
   int num;
-  num = sprintf(buf, "%d$", int(v*100));
+  num = sprintf(buf, "%d$", counter);
 ;
 
   receiver.sendStr(buf);

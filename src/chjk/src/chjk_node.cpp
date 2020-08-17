@@ -4,6 +4,7 @@
 #include <geometry_msgs/Twist.h>
 #include <geometry_msgs/Pose2D.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/Int64.h>
 #include <math.h>
 #include <sstream>
 
@@ -27,12 +28,15 @@ double rr_sign = 1;
 double lf_sign = 1;
 double lr_sign = 1;
 
+int standby = 1;
+int flag = 1;
 
 
 
 
 
-ros::Subscriber cmd_recv,pose_recv;
+
+ros::Subscriber cmd_recv,pose_recv,standby_recv;
 
 
 ros::Publisher	left_front_pub,
@@ -61,195 +65,156 @@ void get_pose(const geometry_msgs::Twist::ConstPtr& pose){
 
 }
 
+void get_standby(const std_msgs::Int64::ConstPtr& msg){
+
+	
+	standby = msg->data;
+
+
+}
+
 
 void get_vw(const geometry_msgs::Twist::ConstPtr& msg){
 
 
-
-
-	target_v[0] = msg->linear.x;
-	target_v[1] = msg->linear.y;
-	//if(abs(target_v[0])<1e-13)target_v[0] =0;
-	//if(abs(target_v[1])<1e-13)target_v[1] =0;
-	target_w = msg->angular.z;
-
-
-
-	rotation(local_v,target_v,-now_theta);//速度指令をlocal座標変換
-
-	
-
-	if(!(target_v[0] == 0 && target_v[1] == 0 && target_w == 0) ){
-
-		/*cmd_rf_deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180 ;		
-		cmd_lf_deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] - target_w*r*sin(alpha)))/M_PI*180 ;
-		cmd_lr_deg = (atan2(local_v[1] - target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180 ;
-		cmd_rr_deg = (atan2(local_v[1] + target_w*r*cos(alpha),local_v[0] + target_w*r*sin(alpha)))/M_PI*180 ;*/
-
-		cmd_rf[0] = local_v[0] - target_w*r*sin(alpha);
-		cmd_rf[1] = local_v[1] + target_w*r*cos(alpha);
-
-		cmd_lf[0] = local_v[0] - target_w*r*sin(alpha);
-		cmd_lf[1] = local_v[1] - target_w*r*cos(alpha);
-
-		cmd_lr[0] = local_v[0] + target_w*r*sin(alpha);
-		cmd_lr[1] = local_v[1] - target_w*r*cos(alpha);
-
-		cmd_rr[0] = local_v[0] + target_w*r*sin(alpha);
-		cmd_rr[1] = local_v[1] + target_w*r*cos(alpha);
-
-		
-		//InnerProduct(now_point, cmd_point,2)/(Norm(now_point,2)*Norm(cmd_point,2));
-
-		//ROS_FATAL("%lf",Norm(cmd_rr,2));
-		//ROS_FATAL("%lf",InnerProduct(now_lr,cmd_lr,2));
-		
-
-
-		calc_deg(now_lf,cmd_lf,&left_front.deg);
-		calc_deg(now_lr,cmd_lr,&left_rear.deg);
-		calc_deg(now_rr,cmd_rr,&right_rear.deg);
-		calc_deg(now_rf,cmd_rf,&right_front.deg);
-
-		ROS_FATAL("%lf %lf %lf %lf %lf %lf",now_lf[0],now_lf[1],cmd_lf[0],cmd_lf[1],InnerProduct(now_lf, cmd_lf,2) / (Norm(now_lf) * Norm(cmd_lf)),calc_dir(now_lf,cmd_lf));
-
-
-
-
-
-
-		/*if(cmd_lr_deg==360){
-			cmd_lr_deg = 0;
-		}
-		if(cmd_lf_deg==360){
-			cmd_lf_deg = 0;
-		}
-		if(cmd_rr_deg==360){
-			cmd_rr_deg = 0;
-		}
-		if(cmd_rf_deg==360){
-			cmd_rf_deg = 0;
-		}
-
-		right_front.deg = now_rf_deg + deg_opt(now_rf_deg,cmd_rf_deg);
-
-		right_rear.deg = now_rr_deg + deg_opt(now_rr_deg,cmd_rr_deg);
-
-		left_front.deg =now_lf_deg + deg_opt(now_lf_deg,cmd_lf_deg);
-
-
-		left_rear.deg = now_lr_deg + deg_opt(now_lr_deg,cmd_lr_deg);*/
-		
-
-
-
-
-	}
-
-	
-
-	
-
-
-	if(target_v[0]==0 && target_v[1]==0 && target_w==0){
+	if (standby == 1)
+	{
+		right_front.deg = 0;
+		right_rear.deg = 0;
+		left_front.deg = 0;
+		left_rear.deg = 0;
 
 		right_front.vel = 0;
 		right_rear.vel = 0;
 		left_front.vel = 0;
 		left_rear.vel = 0;
 
+		now_rf[0] = 1;
+		now_rf[0] = 0;
+
+		now_rr[0] = 1;
+		now_rr[0] = 0;
+
+
+		now_lf[0] = 1;
+		now_lf[0] = 0;
+
+		now_lr[0] = 1;
+		now_lr[0] = 0;
+
+;
+		rf_sign = 1;
+		rr_sign = 1;
+		lf_sign = 1;
+		lr_sign = 1;
+
+
+	}else{
+
+		target_v[0] = msg->linear.x;
+		target_v[1] = msg->linear.y;
+
+		target_w = msg->angular.z;
 
 
 
-	}else
-	{
-		calc_vel(now_rf,cmd_rf,&rf_sign);
-		calc_vel(now_rr,cmd_rr,&rr_sign);
-		calc_vel(now_lf,cmd_lf,&lf_sign);
-		calc_vel(now_lr,cmd_lr,&lr_sign);
+		rotation(local_v,target_v,-now_theta);//速度指令をlocal座標変換
 
 		
 
-		right_front.vel = rf_sign * Norm(cmd_rf);
-		left_front.vel = lf_sign *  Norm(cmd_lf);
-		left_rear.vel = lr_sign *  Norm(cmd_lr);
-		right_rear.vel = rr_sign *  Norm(cmd_rr);
+		if(!(target_v[0] == 0 && target_v[1] == 0 && target_w == 0) ){
 
-		now_rf[0] = cmd_rf[0];
-		now_rf[1] = cmd_rf[1];
+			cmd_rf[0] = local_v[0] - target_w*r*sin(alpha);
+			cmd_rf[1] = local_v[1] + target_w*r*cos(alpha);
 
-		now_rr[0] = cmd_rr[0];
-		now_rr[1] = cmd_rr[1];
+			cmd_lf[0] = local_v[0] - target_w*r*sin(alpha);
+			cmd_lf[1] = local_v[1] - target_w*r*cos(alpha);
 
-		now_lf[0] = cmd_lf[0];
-		now_lf[1] = cmd_lf[1];
+			cmd_lr[0] = local_v[0] + target_w*r*sin(alpha);
+			cmd_lr[1] = local_v[1] - target_w*r*cos(alpha);
 
-		now_lr[0] = cmd_lr[0];
-		now_lr[1] = cmd_lr[1];
+			cmd_rr[0] = local_v[0] + target_w*r*sin(alpha);
+			cmd_rr[1] = local_v[1] + target_w*r*cos(alpha);
+
+			
+			//InnerProduct(now_point, cmd_point,2)/(Norm(now_point,2)*Norm(cmd_point,2));
+
+			//ROS_FATAL("%lf",Norm(cmd_rr,2));
+			//ROS_FATAL("%lf",InnerProduct(now_lr,cmd_lr,2));
+			
+
+
+			calc_deg(now_lf,cmd_lf,&left_front.deg);
+			calc_deg(now_lr,cmd_lr,&left_rear.deg);
+			calc_deg(now_rr,cmd_rr,&right_rear.deg);
+			calc_deg(now_rf,cmd_rf,&right_front.deg);
+
+			//ROS_FATAL("%lf %lf %lf %lf %lf %lf",now_lf[0],now_lf[1],cmd_lf[0],cmd_lf[1],InnerProduct(now_lf, cmd_lf,2) / (Norm(now_lf) * Norm(cmd_lf)),calc_dir(now_lf,cmd_lf));
+
+
+		}
+
+		
+
+		
+
+
+		if(target_v[0]==0 && target_v[1]==0 && target_w==0){
+
+			right_front.vel = 0;
+			right_rear.vel = 0;
+			left_front.vel = 0;
+			left_rear.vel = 0;
+			
+
+
+
+
+
+
+
+
+		}else
+		{
+			calc_vel(now_rf,cmd_rf,&rf_sign);
+			calc_vel(now_rr,cmd_rr,&rr_sign);
+			calc_vel(now_lf,cmd_lf,&lf_sign);
+			calc_vel(now_lr,cmd_lr,&lr_sign);
+
+			
+
+			right_front.vel = rf_sign * Norm(cmd_rf);
+			left_front.vel = lf_sign *  Norm(cmd_lf);
+			left_rear.vel = lr_sign *  Norm(cmd_lr);
+			right_rear.vel = rr_sign *  Norm(cmd_rr);
+
+			now_rf[0] = cmd_rf[0];
+			now_rf[1] = cmd_rf[1];
+
+			now_rr[0] = cmd_rr[0];
+			now_rr[1] = cmd_rr[1];
+
+			now_lf[0] = cmd_lf[0];
+			now_lf[1] = cmd_lf[1];
+
+			now_lr[0] = cmd_lr[0];
+			now_lr[1] = cmd_lr[1];
+
+		}
+
+
+
 
 	}
+
+
+
+
 	
 	
-
-	/*memcpy(now_lr, cmd_lr, sizeof(cmd_lr));
-	memcpy(now_rf, cmd_rf, sizeof(cmd_rf));
-	memcpy(now_rr, cmd_rr, sizeof(cmd_rr));
-	memcpy(now_lf, cmd_lf, sizeof(cmd_lf));*/
+	
 
 
-
-
-	/*right_front.vel = vel_opt(right_front.deg,cmd_rf_deg) * right_front.vel;
-	if(right_front.vel == 0)right_front.vel = 0;
-	now_rf_deg = right_front.deg;
-
-	right_rear.vel = vel_opt(right_rear.deg,cmd_rr_deg) * right_rear.vel;
-	if(right_rear.vel == 0) right_rear.vel = 0;
-	now_rr_deg = right_rear.deg;
-
-	left_front.vel = vel_opt(left_front.deg,cmd_lf_deg) * left_front.vel;
-	if(left_front.vel == 0) left_front.vel =0;
-	now_lf_deg = left_front.deg;
-
-	left_rear.vel = vel_opt(left_rear.deg,cmd_lr_deg) * left_rear.vel;
-	if(left_rear.vel == 0) left_rear.vel = 0;
-	now_lr_deg = left_rear.deg;*/
-
-
-
-
-	/*if(right_front.deg<0){
-		right_front.deg = right_front.deg + 180;
-		right_front.vel = -right_front.vel;
-	}
-	if(left_front.deg<0){
-		left_front.deg = left_front.deg + 180;
-		left_front.vel = -left_front.vel;
-	}
-	if(left_rear.deg<0){
-		left_rear.deg = left_rear.deg + 180;
-		left_rear.vel = -left_rear.vel;
-	}
-	if(right_rear.deg<0){
-		right_rear.deg = right_rear.deg + 180;
-		right_rear.vel = -right_rear.vel;
-	}*/
-
-
-	/*
-	if(abs(right_front.deg)<MIN_DEG){
-		right_front.deg = 0;
-	}
-	if(abs(left_front.deg)<MIN_DEG){
-		left_front.deg = 0;
-	}
-	if(abs(left_rear.deg)<MIN_DEG){
-		left_rear.deg = 0;
-	}
-	if(abs(right_rear.deg)<MIN_DEG){
-		right_rear.deg = 0;
-	}
-*/
 
 
 
@@ -259,6 +224,18 @@ void get_vw(const geometry_msgs::Twist::ConstPtr& msg){
 	left_rear_pub.publish(left_rear);
 	right_rear_pub.publish(right_rear);
 	right_front_pub.publish(right_front);
+
+	if(standby == 1 && flag == 1){
+		ROS_FATAL("during standby");
+		flag = -1;
+	}
+	
+	else if(standby == -1 && flag == -1){
+
+		ROS_FATAL("Not standby");
+		flag = 1;
+	}
+	
 
 }
 
@@ -272,6 +249,7 @@ int main(int argc,char **argv){
 	nh.getParam("chjk_node/r", r);
 	pose_recv = nh.subscribe("spe",1,get_pose);
 	cmd_recv = nh.subscribe("cmd",1,get_vw);
+	standby_recv = nh.subscribe("standby",1,get_standby);
 	left_front_pub = nh.advertise<chjk::unit_cmd>("left_front",1);
 	left_rear_pub = nh.advertise<chjk::unit_cmd>("left_rear",1);
 	right_front_pub = nh.advertise<chjk::unit_cmd>("right_front",1);

@@ -25,7 +25,7 @@ long double preenc =0;
 
 int state = false;
 
-int I2C_address = 0x23;
+int I2C_address = 0x14;
 Ti2c receiver(I2C_address);
 
 ISR(PCINT1_vect,ISR_NOBLOCK){

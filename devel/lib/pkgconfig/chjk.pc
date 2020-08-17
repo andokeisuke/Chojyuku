@@ -4,5 +4,5 @@ Name: chjk
 Description: Description of chjk
 Version: 0.0.0
 Cflags: -I/home/ando/Chojyuku/devel/include
-Libs: -L/home/ando/Chojyuku/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: message_runtime

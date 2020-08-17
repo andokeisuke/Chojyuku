@@ -4,5 +4,5 @@ Name: chjk_yaw
 Description: Description of chjk_yaw
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/ando/Chojyuku/devel/lib 
+Libs: -L${prefix}/lib 
 Requires: 

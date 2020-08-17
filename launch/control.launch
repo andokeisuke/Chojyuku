@@ -8,10 +8,10 @@
     <param name="angle_max" value="1.6"/>
 </node>
 -->
-<!-- Run the map server -->
+<!-- Run the map server 
 <arg name="map_file" default="$(find mpc)/map/my_map2.yaml"/>
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
+-->
 
 <node pkg="joy" type="joy_node" name="joy_node">
 <param name="dev" type="string" value="/dev/input/js1"/>
@@ -21,13 +21,13 @@
 <node
  pkg="rosserial_python"
  type="serial_node.py"
- name="serial_node">
+ name="serial_node0">
 
-<param name="port" value="/dev/ttyACM1"/>
+<param name="port" value="/dev/ttyACM0"/>
 <param name="baud" value="57600"/>
 </node>
-
-<node
+<!--
+    <node
  pkg="rosserial_python"
  type="serial_node.py"
  name="serial_node1">
@@ -50,17 +50,17 @@
  type="serial_node.py"
  name="serial_node4">
 
-<param name="port" value="/dev/ttyACM0"/>
+<param name="port" value="/dev/ttyACM1"/>
 <param name="baud" value="57600"/>
 </node>
 
-<!--
+
 <node
  pkg="rosserial_python"
  type="serial_node.py"
  name="serial_node3">
 
-<param name="port" value="/dev/ttyACM0"/>
+<param name="port" value="/dev/ttyACM4"/>
 <param name="baud" value="57600"/>
 </node>-->
 
@@ -87,10 +87,10 @@
 </node>
 
 <node name="joy_controller" type="joy_controller_node" pkg="joy_controller" >
-<param name="MAX_VEL" value="6.0"/>
-<param name="MAX_ANGULAR_VEL" value="6.0"/>
+<param name="MAX_VEL" value="2.0"/>
+<param name="MAX_ANGULAR_VEL" value="5.0"/>
 <param name="ENC_NUM" value="2000"/>
-<param name="TRY_SPEED" value="150"/>
+<param name="TRY_SPEED" value="100"/>
 <param name="DELAY_TIME" value="200"/>
  </node>
 

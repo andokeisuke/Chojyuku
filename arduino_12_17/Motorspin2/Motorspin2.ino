@@ -29,7 +29,7 @@ void task_cb(const std_msgs::Int16MultiArray& msg)
 
     
     m1.setSpeed(-mt_speed);
-    while(enc_num > enc){
+    /*while(enc_num > enc){
       enc = m1.encorder();
       delay(10);
 
@@ -48,8 +48,18 @@ void task_cb(const std_msgs::Int16MultiArray& msg)
       //nh.spinOnce();
     }
 
-     m1.setSpeed(0);
+     m1.setSpeed(0);*/
   }
+  else if (cmd == -1){
+    m1.setSpeed(mt_speed);
+    
+  }
+  else{
+    
+      m1.setSpeed(0);
+    
+    
+    }
  
 
   

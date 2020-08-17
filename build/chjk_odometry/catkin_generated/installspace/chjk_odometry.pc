@@ -4,5 +4,5 @@ Name: chjk_odometry
 Description: Description of chjk_odometry
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/ando/Chojyuku/install/lib 
+Libs: -L${prefix}/lib 
 Requires: 

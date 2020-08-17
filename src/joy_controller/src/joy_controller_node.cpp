@@ -68,6 +68,8 @@ void get_joy(const sensor_msgs::Joy& joy){
 	if(joy.buttons[8]){
 
 		standby_state.data = -standby_state.data;
+		cmd.linear.x = 0;
+		cmd.linear.y = 0;
 
 
 
